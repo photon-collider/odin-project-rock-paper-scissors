@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      function computerPlay(){
+        choices = ['rock', 'paper', 'scissors']
+        randInt = Math.floor(3*Math.random())
+        return choices[randInt];
+      }
+
+
+      function playRound(playerSelection, computerSelection) {
+
+        playerSelection = playerSelection.toLowerCase();
+        let winResponse = "You won! The computer chose " + computerSelection;
+        let loseResponse = "You lost! The computer chose " + computerSelection;
+
+        if (playerSelection === computerSelection){
+          return "It's a tie!"
+        }
+        else {
+          switch (playerSelection){
+            case 'rock':
+              if (computerSelection === 'scissors'){
+                return winResponse;
+              }
+              else {
+                return loseResponse;
+              }
+
+            case 'paper':
+              if (computerSelection === 'rock'){
+                return winResponse;
+              }
+              else {
+                return loseResponse;
+              }
+
+              case 'scissors':
+                if (computerSelection === 'paper'){
+                  return winResponse;
+                }
+
+                else {
+                  return loseResponse;
+                }
+          }
+        }
+      }
+
+      function game() {
+        console.log(playRound(prompt("Rock, paper, or scissors?"), computerPlay()))
+      }
+
+    </script>
+
+  </body>
+</html>
